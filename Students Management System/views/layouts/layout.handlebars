@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>STUDENT LOGIN</title>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+<body>
+	<div class="header clearfix">
+        <nav>
+          <ul class="nav nav-pills pull-right nav_list">
+            {{#if user}}
+              <!-- <li role="presentation"><a href="/">Dashboard</a></li> -->
+              <li role="presentation"><a href="/users/logout">Logout</a></li>
+            {{else}}
+              <li role="presentation"><a href="/users/login">Login</a></li>
+              <li role="presentation"><a href="/users/register">Register</a></li>
+            {{/if}}          
+          </ul>
+        </nav>
+        {{#if user}}
+        <h3 class="text-muted my_logo"><a href="/users/home">STUDENT INFO SYSTEM</a></h3>
+        {{else}}
+        <h3 class="text-muted my_logo"><a href="/">STUDENT INFO SYSTEM</a></h3>
+        {{/if}}
+      </div>
+  <div class="my_area">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+          	{{#if success_msg}}
+  	        	<div class="alert alert-success">{{success_msg}}</div>
+          	{{/if}}
+
+          	{{#if error_msg}}
+  	        	<div class="alert alert-danger">{{error_msg}}</div>
+          	{{/if}}
+
+          	{{#if error}}
+  	        	<div class="alert alert-danger">{{error}}</div>
+          	{{/if}}
+          </div>
+        </div>
+      </div>
+      {{{body}}}
+    </div>
+</body>
+</html>
